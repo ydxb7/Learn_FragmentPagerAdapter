@@ -15,6 +15,8 @@
  */
 package com.example.android.viewpager;
 
+import android.content.Context;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -23,6 +25,9 @@ import android.support.v4.app.FragmentPagerAdapter;
  * Provides the appropriate {@link Fragment} for a view pager.
  */
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
+
+    final int PAGE_COUNT = 5;
+    private String tabTitles[] = new String[] { "1", "2", "3", "4", "5" };
 
     public SimpleFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -45,6 +50,11 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 5;
+        return PAGE_COUNT;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return tabTitles[position];
     }
 }
